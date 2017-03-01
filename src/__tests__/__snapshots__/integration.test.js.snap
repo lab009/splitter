@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration tests render server and client 1`] = `"<div><div><div><span>In Render.</span></div><div><span>In Boundary but outside an AsyncComponent, server render me!</span></div></div></div>"`;
+
+exports[`integration tests render server and client 2`] = `
+Object {
+  "resolved": Object {
+    "1": true,
+    "2": true,
+    "4": true,
+  },
+}
+`;
+
+exports[`integration tests render server and client 3`] = `
+<AsyncComponentProvider
+  execContext={
+    Object {
+      "getComponent": [Function],
+      "getNextId": [Function],
+      "getResolved": [Function],
+      "registerComponent": [Function],
+    }
+  }
+>
+  <AsyncBob>
+    <Bob>
+      <div>
+        <div>
+          <AsyncBobTwo>
+            <Bob>
+              <div>
+                <span>
+                  In Render.
+                </span>
+              </div>
+            </Bob>
+          </AsyncBobTwo>
+          <DeferredAsyncBob />
+          <BoundaryAsyncBob>
+            <Bob>
+              <div>
+                <span>
+                  In Boundary but outside an AsyncComponent, server render me!
+                </span>
+                <AsyncBobThree />
+              </div>
+            </Bob>
+          </BoundaryAsyncBob>
+        </div>
+      </div>
+    </Bob>
+  </AsyncBob>
+</AsyncComponentProvider>
+`;
+
+exports[`integration tests render server and client 4`] = `
+<AsyncComponentProvider
+  execContext={
+    Object {
+      "getComponent": [Function],
+      "getNextId": [Function],
+      "getResolved": [Function],
+      "registerComponent": [Function],
+    }
+  }
+>
+  <AsyncBob>
+    <Bob>
+      <div>
+        <div>
+          <AsyncBobTwo>
+            <Bob>
+              <div>
+                <span>
+                  In Render.
+                </span>
+              </div>
+            </Bob>
+          </AsyncBobTwo>
+          <DeferredAsyncBob>
+            <Bob>
+              <div>
+                <span>
+                  In Defer.
+                </span>
+              </div>
+            </Bob>
+          </DeferredAsyncBob>
+          <BoundaryAsyncBob>
+            <Bob>
+              <div>
+                <span>
+                  In Boundary but outside an AsyncComponent, server render me!
+                </span>
+                <AsyncBobThree>
+                  <Bob>
+                    <div>
+                      <span>
+                        In Boundary - Do not server render me!
+                      </span>
+                    </div>
+                  </Bob>
+                </AsyncBobThree>
+              </div>
+            </Bob>
+          </BoundaryAsyncBob>
+        </div>
+      </div>
+    </Bob>
+  </AsyncBob>
+</AsyncComponentProvider>
+`;

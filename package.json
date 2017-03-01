@@ -1,0 +1,92 @@
+{
+  "name": "@lab009/splitter",
+  "version": "0.0.1",
+  "description": "Create Components that resolve asynchronously, with support for server side rendering and code splitting.",
+  "repository": "lab009/splitter",
+  "bugs": {
+    "url": "https://github.com/lab009/splitter/issues"
+  },
+  "author": "Oleg Orlov <mail@orlovoleg.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "es/index.js",
+  "files": [
+    "dist",
+    "es"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "code splitting",
+    "webpack"
+  ],
+  "scripts": {
+    "build": "yarn run build:commonjs && yarn run build:es",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel --ignore **/__tests__ ./src -d ./dist",
+    "build:es": "cross-env BABEL_ENV=es  babel --ignore **/__tests__ ./src -d ./es",
+    "check": "yarn run lint && yarn run test",
+    "clean": "rimraf ./dist && rimraf ./es && rimraf ./coverage && rimraf ./flow-coverage",
+    "example:web": "echo 'Make sure to `cd example/web && yarn install`' && cd example/web && yarn run start",
+    "flow": "babel-node ./tools/scripts/flow",
+    "flow:coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text",
+    "flow:defs": "flow-typed install --overwrite",
+    "lint": "eslint src",
+    "preversion": "yarn run clean && yarn run build",
+    "test": "jest",
+    "test:coverage": "yarn run test -- --coverage",
+    "test:coverage:deploy": "yarn run test:coverage && codecov"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
+  },
+  "dependencies": {
+    "@lab009/hunter": "^1.0.0"
+  },
+  "devDependencies": {
+    "@lab009/babel-preset-magma": "3.0.2",
+    "@lab009/eslint-config-magma": "3.0.3",
+    "app-root-dir": "1.0.2",
+    "babel-cli": "6.23.0",
+    "babel-core": "6.23.1",
+    "babel-jest": "19.0.0",
+    "codecov": "1.0.1",
+    "cross-env": "3.1.4",
+    "enzyme": "2.7.1",
+    "enzyme-to-json": "1.5.0",
+    "eslint": "3.16.1",
+    "eslint-plugin-flowtype": "2.30.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.10.0",
+    "flow-bin": "0.40.0",
+    "flow-coverage-report": "0.3.0",
+    "flow-typed": "2.0.0",
+    "ghooks": "2.0.0",
+    "jest": "19.0.2",
+    "react": "15.4.2",
+    "react-addons-test-utils": "15.4.2",
+    "react-dom": "15.4.2",
+    "rimraf": "2.6.1",
+    "sinon": "1.17.7"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "yarn run check"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/(dist|coverage|flow-typed|node_modules|tools|es)/"
+    ]
+  }
+}

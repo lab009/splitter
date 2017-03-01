@@ -1,0 +1,6 @@
+flow-typed/
+tools/flow/
+node_modules/
+coverage/
+dist/
+es/
