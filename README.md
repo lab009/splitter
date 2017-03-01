@@ -1,5 +1,7 @@
 # @lab009/splitter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lab009/splitter.svg)](https://greenkeeper.io/)
+
 Create Components that resolve asynchronously, with support for server side rendering and code splitting.
 
 ```jsx
