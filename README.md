@@ -1,5 +1,8 @@
 # @lab009/splitter
 
+[![npm](https://img.shields.io/npm/v/@lab009/splitter.svg?style=flat-square)](http://npm.im/@lab009/splitter)
+[![Travis](https://img.shields.io/travis/lab009/splitter.svg?style=flat-square)](https://travis-ci.org/lab009/splitter)
+[![Codecov](https://img.shields.io/codecov/c/github/lab009/splitter.svg?style=flat-square)](https://codecov.io/github/lab009/splitter)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lab009/splitter.svg)](https://greenkeeper.io/)
 
 Create Components that resolve asynchronously, with support for server side rendering and code splitting.
