@@ -47,7 +47,7 @@
     "@lab009/hunter": "^1.0.0"
   },
   "devDependencies": {
-    "@lab009/babel-preset-magma": "3.0.2",
+    "@lab009/babel-preset-magma": "3.4.1",
     "@lab009/eslint-config-magma": "3.0.3",
     "app-root-dir": "1.0.2",
     "babel-cli": "6.23.0",
